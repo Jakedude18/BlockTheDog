@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
 {
+    [SerializeField] GameObject fencePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,9 @@ public class PlayerHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0)){
+            Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameObject g = Instantiate(fencePrefab, (Vector2)spawnPosition, Quaternion.identity);
+        }
     }
 }
