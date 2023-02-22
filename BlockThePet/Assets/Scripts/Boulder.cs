@@ -4,12 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace BoardRenderer{
-    public class Tile 
-    {
-        public bool isEmpty;
-        public Tile()
+        public class Boulder : Tile
         {
-            isEmpty = false;
+
         }
-    }
 }

@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassPrefab: {fileID: 6190842281388122356, guid: 7df39e16e59c541fc87a07062c4519d7, type: 3}
   boardTopLeft: {fileID: 1127907870}
+  mapTextFile: {fileID: 4900000, guid: 60da61d3afe144863b3a6b410d2c1797, type: 3}
 --- !u!1 &1127907869
 GameObject:
   m_ObjectHideFlags: 0
