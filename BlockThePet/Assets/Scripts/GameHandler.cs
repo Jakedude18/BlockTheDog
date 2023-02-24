@@ -4,8 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BoardRenderer{
-    public class BoardRenderer : MonoBehaviour
+namespace GameHandler{
+    public class GameHandler : MonoBehaviour
     {   
         public GameObject grassPrefab;
         public GameObject boulderPrefab;
@@ -59,7 +59,9 @@ namespace BoardRenderer{
         // Update is called once per frame
         void Update()
         {
-            
+            if (Input.GetKey("escape")){
+                    Application.Quit();
+            }
         }
     }
 }   
