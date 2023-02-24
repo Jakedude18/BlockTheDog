@@ -9,7 +9,7 @@ namespace BoardRenderer{
         public bool isEmpty;
         public Tile()
         {
-            isEmpty = false;
+            isEmpty = true;
         }
     }
 }

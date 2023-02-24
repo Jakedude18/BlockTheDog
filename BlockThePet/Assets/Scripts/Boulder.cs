@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace BoardRenderer{
-        public class Boulder : Tile
+    public class Boulder                 
+    {
+        public Boulder()
         {
-
+            isEmpty = false;
         }
+    }
 }
