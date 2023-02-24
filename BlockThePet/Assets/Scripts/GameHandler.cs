@@ -79,7 +79,7 @@ namespace GameHandler{
         }
 
         public void OpenGame(){
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("Jake_scene");
         }
 
         public void RestartGame(){
