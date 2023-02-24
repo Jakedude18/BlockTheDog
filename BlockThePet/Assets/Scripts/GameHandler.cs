@@ -12,6 +12,7 @@ namespace GameHandler{
     {   
         public GameObject grassPrefab;
         public GameObject boulderPrefab;
+        public GameObject escapePrefab;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;     
         private static int size = 10;
@@ -26,17 +27,18 @@ namespace GameHandler{
 
         void readInMap(){
             string text = mapTextFile.text;  //this is the content as string
-            Debug.Log(text[10]);
             // Store each line in array of strings
             for(int i = 0; i < size; i++){
                 for(int j = 0; j < size; j++){
                     char curr = text[i*(size+1)+j];
                     if(curr == '1'){
-                        Debug.Log("hellO");
                         tiles[i,j] = new Grass();
                     }
                     if(curr == '0'){
                         tiles[i,j] = new Boulder();
+                    }
+                    if(curr == '2'){
+                        tiles[i,j] = new Escape();
                     }
                 }
             }
@@ -52,6 +54,9 @@ namespace GameHandler{
                     }
                     if(tiles[j,k].GetType() == typeof(Boulder)){
                         Instantiate(boulderPrefab, position + Vector3.right * (float)k, Quaternion.identity);
+                    }
+                    if(tiles[j,k].GetType() == typeof(Escape)){
+                        Instantiate(escapePrefab, position + Vector3.right * (float)k, Quaternion.identity);
                     }
                 }
             }
