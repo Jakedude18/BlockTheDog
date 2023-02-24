@@ -14,7 +14,7 @@ namespace GameHandler{
         public GameObject boulderPrefab;
         public GameObject escapePrefab;
         public Transform boardTopLeft;
-        public TextAsset mapTextFile;     
+        public TextAsset mapTextFile;
         private static int size = 10;
         Tile[,] tiles = new Tile[size,size];
         
@@ -27,18 +27,24 @@ namespace GameHandler{
 
         void readInMap(){
             string text = mapTextFile.text;  //this is the content as string
+
+            text = text.Replace("\n", "").Replace("\r", "");
+            Debug.Log(text[9]);
+            Debug.Log(text[10]);
+            Debug.Log(text[11]);
+            Debug.Log(text[12]);
             // Store each line in array of strings
             for(int i = 0; i < size; i++){
                 for(int j = 0; j < size; j++){
-                    char curr = text[i*(size+1)+j];
-                    if(curr == '1'){
-                        tiles[i,j] = new Grass();
-                    }
+                    char curr = text[i*(size)+j];
                     if(curr == '0'){
                         tiles[i,j] = new Boulder();
                     }
-                    if(curr == '2'){
+                    else if(curr == '2'){
                         tiles[i,j] = new Escape();
+                    }
+                    else if(curr == '1'){
+                        tiles[i,j] = new Grass();
                     }
                 }
             }
