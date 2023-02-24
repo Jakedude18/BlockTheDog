@@ -25,7 +25,6 @@ namespace GameHandler{
         }
 
         void readInMap(){
-
             string text = mapTextFile.text;  //this is the content as string
             Debug.Log(text[10]);
             // Store each line in array of strings
@@ -41,8 +40,6 @@ namespace GameHandler{
                     }
                 }
             }
-
-    
         }
 
         void renderMap(){
