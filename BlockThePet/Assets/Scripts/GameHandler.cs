@@ -3,6 +3,9 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 namespace GameHandler{
     public class GameHandler : MonoBehaviour
@@ -62,6 +65,26 @@ namespace GameHandler{
             if (Input.GetKey("escape")){
                     Application.Quit();
             }
+        }
+
+        public void StartGame(){
+            SceneManager.LoadScene("Scene1");
+        }
+
+        public void OpenGame(){
+            SceneManager.LoadScene("GameScene");
+        }
+
+        public void RestartGame(){
+            SceneManager.LoadScene("Scene1");
+        }
+
+        public void QuitGame(){
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #else
+            Application.Quit();
+            #endif
         }
     }
 }   
