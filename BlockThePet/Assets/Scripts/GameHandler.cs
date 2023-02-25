@@ -14,6 +14,7 @@ namespace GameHandler{
         public GameObject boulderPrefab;
         public GameObject escapePrefab;
         public GameObject PlayerHandler;
+        public Transform Dog;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
@@ -25,7 +26,10 @@ namespace GameHandler{
             readInMap();
             renderMap();
             DogMover dogMover = new DogMover();
-            Debug.Log("Dog should move this way: " + dogMover.DPSDirectionToMove(tiles, 2, 1));
+            int direction = dogMover.DPSDirectionToMove(tiles, 4, 3);
+            //move dog
+            Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
+            //michael's werid shit
             PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
             playerHandlerScript.test();
         }
@@ -72,7 +76,8 @@ namespace GameHandler{
         void Update()
         {
             if (Input.GetKey("escape")){
-                    Application.Quit();
+                //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
+                Application.Quit();
             }
         }
 
