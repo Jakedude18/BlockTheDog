@@ -24,6 +24,8 @@ namespace GameHandler{
         {
             readInMap();
             renderMap();
+            DogMover dogMover = new DogMover();
+            Debug.Log("Dog should move this way: " + dogMover.DPSDirectionToMove(tiles, 2, 1));
             PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
             playerHandlerScript.test();
         }
