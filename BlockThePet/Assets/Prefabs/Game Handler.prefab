@@ -78,5 +78,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassPrefab: {fileID: 6190842281388122356, guid: 7df39e16e59c541fc87a07062c4519d7, type: 3}
   boulderPrefab: {fileID: 6566899995489111726, guid: 38ae81d9d937048689d951a86e85b7cb, type: 3}
+  escapePrefab: {fileID: 8625564394920803039, guid: 17c01f30059f448929c4b648476eb5b8, type: 3}
+  PlayerHandler: {fileID: 3876954986483143363, guid: 5355194f2f3e808438fabda0e9fbc9ff, type: 3}
+  Dog: {fileID: 5254993707260003203, guid: 2b497c55e6ae91e44808b1f57a5f9e0c, type: 3}
   boardTopLeft: {fileID: 2179224464484300593}
   mapTextFile: {fileID: 4900000, guid: 60da61d3afe144863b3a6b410d2c1797, type: 3}

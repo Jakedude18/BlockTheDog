@@ -13,6 +13,8 @@ namespace GameHandler{
         public GameObject grassPrefab;
         public GameObject boulderPrefab;
         public GameObject escapePrefab;
+        public GameObject PlayerHandler;
+        public Transform Dog;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
@@ -23,16 +25,19 @@ namespace GameHandler{
         {
             readInMap();
             renderMap();
+            DogMover dogMover = new DogMover();
+            int direction = dogMover.DPSDirectionToMove(tiles, 4, 3);
+            //move dog
+            Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
+            //michael's werid shit
+            PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
+            playerHandlerScript.test();
         }
 
         void readInMap(){
             string text = mapTextFile.text;  //this is the content as string
 
             text = text.Replace("\n", "").Replace("\r", "");
-            Debug.Log(text[9]);
-            Debug.Log(text[10]);
-            Debug.Log(text[11]);
-            Debug.Log(text[12]);
             // Store each line in array of strings
             for(int i = 0; i < size; i++){
                 for(int j = 0; j < size; j++){
@@ -71,7 +76,8 @@ namespace GameHandler{
         void Update() //make a turn handler so that it alternates between dog and fence
         {
             if (Input.GetKey("escape")){
-                    Application.Quit();
+                //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
+                Application.Quit();
             }
         }
 
@@ -94,5 +100,6 @@ namespace GameHandler{
             Application.Quit();
             #endif
         }
+
     }
 }   
