@@ -18,6 +18,7 @@ namespace GameHandler{
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
+        public bool isPlayerTurn = false;
         Tile[,] tiles = new Tile[size,size];
         
         // Start is called before the first frame update
@@ -28,6 +29,16 @@ namespace GameHandler{
             //michael's werid shit
             PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
             playerHandlerScript.test();
+            DogMover dogMover = new DogMover();
+            int direction = dogMover.DPSDirectionToMove(tiles, 4, 3);
+            if (isPlayerTurn == false) {
+                //move dog
+                Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
+            } else {
+                //michael's werid shit
+                PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
+                playerHandlerScript.test();
+            }
         }
 
         void readInMap(){
@@ -68,6 +79,7 @@ namespace GameHandler{
             }
         }
         // Update is called once per frame
+<<<<<<< HEAD
         public float moveInterval = 2;
         private int dogRow = 4;
         private int dogCol = 4;
@@ -90,8 +102,19 @@ namespace GameHandler{
             }
             
 
+=======
+        void Update() //make a turn handler so that it alternates between dog and fence
+        {
+            //this alternates turns between player and dog
+            if (isPlayerTurn == true) {
+                isPlayerTurn = false;
+            } else {
+                isPlayerTurn = true;
+            }
+>>>>>>> 717d4f2a1c77ecac8c567fb9f97ce95b0f586e77
             if (Input.GetKey("escape")){
                 //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
+                //Apparently, this is ignored in the unity editor but will work after exported
                 Application.Quit();
             }
         }
