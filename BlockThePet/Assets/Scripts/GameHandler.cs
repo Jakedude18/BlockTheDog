@@ -25,10 +25,6 @@ namespace GameHandler{
         {
             readInMap();
             renderMap();
-            DogMover dogMover = new DogMover();
-            int direction = dogMover.DPSDirectionToMove(tiles, 4, 3);
-            //move dog
-            Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
             //michael's werid shit
             PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
             playerHandlerScript.test();
@@ -36,7 +32,6 @@ namespace GameHandler{
 
         void readInMap(){
             string text = mapTextFile.text;  //this is the content as string
-
             text = text.Replace("\n", "").Replace("\r", "");
             // Store each line in array of strings
             for(int i = 0; i < size; i++){
@@ -73,8 +68,28 @@ namespace GameHandler{
             }
         }
         // Update is called once per frame
+        public float moveInterval = 2;
+        private int dogRow = 4;
+        private int dogCol = 4;
         void Update()
         {
+            //Dog moving test using timer
+            if (moveInterval > 0)
+            {
+                moveInterval -= Time.deltaTime;
+            }
+            else
+            {
+                DogMover dogMover = new DogMover();
+                int direction = dogMover.BPSDirectionToMove(tiles, dogRow, dogCol);
+                //move dog 
+                Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
+                dogRow += DogMover.dRow[direction];
+                dogCol += DogMover.dCol[direction];
+                moveInterval = 2;
+            }
+            
+
             if (Input.GetKey("escape")){
                 //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
                 Application.Quit();

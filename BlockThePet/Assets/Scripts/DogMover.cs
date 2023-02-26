@@ -13,13 +13,11 @@ namespace GameHandler{
         static int[,] dist; // A 2D array to keep track of the distance to the starting cell
         static int rows, cols; // The number of rows and columns in the boolean array
 
-        public int DPSDirectionToMove(Tile[,] maze, int startRow, int startCol)
+        public int BPSDirectionToMove(Tile[,] maze, int startRow, int startCol)
         {
             rows = maze.GetLength(0); // Get the number of rows
             cols = maze.GetLength(1); // Get the number of columns
 
-            visited = new bool[rows, cols]; // Initialize the visited array
-            dist = new int[rows, cols]; // Initialize the distance array
 
             int[] distances = new int[4];
             //find distances from each cardinal direction
@@ -31,7 +29,7 @@ namespace GameHandler{
                 //Debug.Log(maze[nRow, nCol].isEmpty);
                 if (nRow >= 0 && nRow < rows && nCol >= 0 && nCol < cols && maze[nRow, nCol].isEmpty)
                 {
-                    distances[i] = DFSFindShortestPath(maze, nRow, nCol);
+                    distances[i] = BFSFindShortestPath(maze, nRow, nCol);
                 }
                 else{
                     distances[i] = int.MaxValue;
@@ -50,20 +48,20 @@ namespace GameHandler{
             return minIndex;
         }
 
-        private int DFSFindShortestPath(Tile[,] maze, int startRow, int startCol)
+        private int BFSFindShortestPath(Tile[,] maze, int startRow, int startCol)
         {
-            Stack<int[]> stack = new Stack<int[]>(); // A stack to store the current cell and its distance
-            stack.Push(new int[] { startRow, startCol, 0 }); // Push the starting cell onto the stack with a distance of 0
-            
+            Queue<int[]> stack = new Queue<int[]>(); // A stack to store the current cell and its distance
+            stack.Enqueue(new int[] { startRow, startCol, 0 }); // Push the starting cell onto the stack with a distance of 0
+            visited = new bool[rows, cols]; // Initialize the visited array
+
             while (stack.Count > 0)
             {
-                int[] current = stack.Pop(); // Pop the top cell off the stack
+                int[] current = stack.Dequeue(); // Pop the top cell off the stack
                 int row = current[0]; 
                 int col = current[1]; 
                 int distance = current[2]; // Get the distance to the current cell
 
                 visited[row, col] = true; // Mark the current cell as visited
-                dist[row, col] = distance; // Store the distance to the current cell
 
                 if (maze[row,col].GetType() == typeof(Escape)) // If we've reached the end cell, return the distance
                 {
@@ -79,7 +77,7 @@ namespace GameHandler{
                     // Check if the neighboring cell is within the bounds of the maze and is unvisited and is not blocked
                     if (nRow >= 0 && nRow < rows && nCol >= 0 && nCol < cols && !visited[nRow, nCol] && maze[nRow, nCol].isEmpty)
                     {
-                        stack.Push(new int[] { nRow, nCol, distance + 1 }); // Push the neighboring cell onto the stack with a distance of 1 more than the current cell
+                        stack.Enqueue(new int[] { nRow, nCol, distance + 1 }); // Push the neighboring cell onto the stack with a distance of 1 more than the current cell
                     }
                 }
             }
