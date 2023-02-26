@@ -68,7 +68,7 @@ namespace GameHandler{
             }
         }
         // Update is called once per frame
-        void Update()
+        void Update() //make a turn handler so that it alternates between dog and fence
         {
             if (Input.GetKey("escape")){
                     Application.Quit();
