@@ -18,6 +18,7 @@ namespace GameHandler{
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
+        public bool isPlayerTurn = false;
         Tile[,] tiles = new Tile[size,size];
         
         // Start is called before the first frame update
@@ -27,11 +28,14 @@ namespace GameHandler{
             renderMap();
             DogMover dogMover = new DogMover();
             int direction = dogMover.DPSDirectionToMove(tiles, 4, 3);
-            //move dog
-            Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
-            //michael's werid shit
-            PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
-            playerHandlerScript.test();
+            if (isPlayerTurn == false) {
+                //move dog
+                Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
+            } else {
+                //michael's werid shit
+                PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
+                playerHandlerScript.test();
+            }
         }
 
         void readInMap(){
@@ -75,8 +79,15 @@ namespace GameHandler{
         // Update is called once per frame
         void Update() //make a turn handler so that it alternates between dog and fence
         {
+            //this alternates turns between player and dog
+            if (isPlayerTurn == true) {
+                isPlayerTurn = false;
+            } else {
+                isPlayerTurn = true;
+            }
             if (Input.GetKey("escape")){
                 //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
+                //Apparently, this is ignored in the unity editor but will work after exported
                 Application.Quit();
             }
         }
