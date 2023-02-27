@@ -98,7 +98,7 @@ namespace GameHandler{
                 DogMover dogMover = new DogMover();
                 int direction = dogMover.BPSDirectionToMove(tiles, dogRow, dogCol);
                 if(direction == -1){
-                    SceneManager.LoadScene("SWGameOverScne");
+                    SceneManager.LoadScene("SWGameOver");
                 }
                 //move dog 
                 Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
@@ -108,7 +108,7 @@ namespace GameHandler{
                 isPlayerTurn = !isPlayerTurn;
                 //check if dog has gotten a language 
                 if(tiles[dogRow,dogCol].GetType() == typeof(Escape)){
-                    SceneManager.LoadScene("SWGameOverScene");
+                    SceneManager.LoadScene("SWGameOver");
                 }
             }
             
