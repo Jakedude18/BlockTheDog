@@ -26,19 +26,21 @@ namespace GameHandler{
         {
             readInMap();
             renderMap();
-            //michael's werid shit
+
             PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
             playerHandlerScript.test();
+
+            // COMMENTED OUT 2/26
+            /*
             DogMover dogMover = new DogMover();
             int direction = dogMover.DPSDirectionToMove(tiles, 4, 3);
             if (isPlayerTurn == false) {
-                //move dog
                 Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
             } else {
-                //michael's werid shit
                 PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
                 playerHandlerScript.test();
             }
+            */
         }
 
         void readInMap(){
@@ -78,7 +80,10 @@ namespace GameHandler{
                 }
             }
         }
+
+        // COMMENTED OUT 2/26
         // Update is called once per frame
+        /*
 <<<<<<< HEAD
         public float moveInterval = 2;
         private int dogRow = 4;
@@ -118,6 +123,7 @@ namespace GameHandler{
                 Application.Quit();
             }
         }
+        */
 
         public void StartGame(){
             SceneManager.LoadScene("Scene1");
