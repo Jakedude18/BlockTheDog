@@ -28,19 +28,7 @@ namespace GameHandler{
             renderMap();
 
             PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
-            playerHandlerScript.test();
-
-            // COMMENTED OUT 2/26
-            /*
-            DogMover dogMover = new DogMover();
-            int direction = dogMover.DPSDirectionToMove(tiles, 4, 3);
-            if (isPlayerTurn == false) {
-                Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
-            } else {
-                PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
-                playerHandlerScript.test();
-            }
-            */
+            playerHandlerScript.test();            
         }
 
         void readInMap(){
@@ -83,12 +71,11 @@ namespace GameHandler{
 
         // COMMENTED OUT 2/26
         // Update is called once per frame
-        /*
-<<<<<<< HEAD
+        
         public float moveInterval = 2;
         private int dogRow = 4;
         private int dogCol = 4;
-        void Update()
+        void Update() //make a turn handler so that it alternates between dog and fence
         {
             //Dog moving test using timer
             if (moveInterval > 0)
@@ -105,25 +92,19 @@ namespace GameHandler{
                 dogCol += DogMover.dCol[direction];
                 moveInterval = 2;
             }
-            
-
-=======
-        void Update() //make a turn handler so that it alternates between dog and fence
-        {
             //this alternates turns between player and dog
             if (isPlayerTurn == true) {
                 isPlayerTurn = false;
             } else {
                 isPlayerTurn = true;
             }
->>>>>>> 717d4f2a1c77ecac8c567fb9f97ce95b0f586e77
             if (Input.GetKey("escape")){
                 //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
                 //Apparently, this is ignored in the unity editor but will work after exported
                 Application.Quit();
             }
         }
-        */
+        
 
         public void StartGame(){
             SceneManager.LoadScene("Scene1");
