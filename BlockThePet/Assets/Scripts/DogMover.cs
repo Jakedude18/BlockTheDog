@@ -85,7 +85,7 @@ namespace GameHandler{
                 }
             }
             
-            return 0;
+            return int.MaxValue;
         }
     }
 }
