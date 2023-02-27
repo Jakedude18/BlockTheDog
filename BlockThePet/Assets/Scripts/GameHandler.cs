@@ -103,6 +103,10 @@ namespace GameHandler{
                 dogCol += DogMover.dCol[direction];
                 moveInterval = 2;
                 isPlayerTurn = !isPlayerTurn;
+                //check if dog has gotten a language 
+                if(tiles[dogRow,dogCol].GetType() == typeof(Escape)){
+                    SceneManager.LoadScene("SWGameOverScene");
+                }
             }
             
             if (Input.GetKey("escape")){
