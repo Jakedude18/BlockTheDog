@@ -13,22 +13,22 @@ namespace GameHandler{
         public GameObject grassPrefab;
         public GameObject boulderPrefab;
         public GameObject escapePrefab;
+        public GameObject fencePrefab;
         public GameObject PlayerHandler;
+        private PlayerHandler playerHandlerScript;
         public Transform Dog;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
-        public bool isPlayerTurn = false;
+        public bool isPlayerTurn = true;
         Tile[,] tiles = new Tile[size,size];
         
         // Start is called before the first frame update
         void Start()
         {
+            playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
             readInMap();
             renderMap();
-
-            PlayerHandler playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
-            playerHandlerScript.test();            
         }
 
         void readInMap(){
@@ -65,6 +65,9 @@ namespace GameHandler{
                     if(tiles[j,k].GetType() == typeof(Escape)){
                         Instantiate(escapePrefab, position + Vector3.right * (float)k, Quaternion.identity);
                     }
+                    if(tiles[j,k].GetType() == typeof(Fence)){
+                        Instantiate(fencePrefab, position + Vector3.right * (float)k, Quaternion.identity);
+                    }
                 }
             }
         }
@@ -77,13 +80,21 @@ namespace GameHandler{
         private int dogCol = 4;
         void Update() //make a turn handler so that it alternates between dog and fence
         {
-            //Dog moving test using timer
-            if (moveInterval > 0)
-            {
-                moveInterval -= Time.deltaTime;
+            if(Input.GetMouseButtonDown(0)){
+                try{
+                    isPlayerTurn = false;
+                    tiles = playerHandlerScript.placeFence(tiles);
+                }
+                catch(System.Exception e){
+                    Debug.Log("Can't put fence on boulder");
+                    isPlayerTurn = true;
+                }
+                renderMap();
             }
-            else
+            if(!isPlayerTurn)
             {
+                //timer to let dog think
+
                 DogMover dogMover = new DogMover();
                 int direction = dogMover.BPSDirectionToMove(tiles, dogRow, dogCol);
                 //move dog 
@@ -91,13 +102,13 @@ namespace GameHandler{
                 dogRow += DogMover.dRow[direction];
                 dogCol += DogMover.dCol[direction];
                 moveInterval = 2;
+                isPlayerTurn = !isPlayerTurn;
+                //check if dog has gotten a language 
+                if(tiles[dogRow,dogCol].GetType() == typeof(Escape)){
+                    SceneManager.LoadScene("SWGameOverScene");
+                }
             }
-            //this alternates turns between player and dog
-            if (isPlayerTurn == true) {
-                isPlayerTurn = false;
-            } else {
-                isPlayerTurn = true;
-            }
+            
             if (Input.GetKey("escape")){
                 //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
                 //Apparently, this is ignored in the unity editor but will work after exported
