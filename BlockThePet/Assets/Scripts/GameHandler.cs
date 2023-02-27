@@ -97,6 +97,9 @@ namespace GameHandler{
 
                 DogMover dogMover = new DogMover();
                 int direction = dogMover.BPSDirectionToMove(tiles, dogRow, dogCol);
+                if(direction == -1){
+                    SceneManager.LoadScene("SWGameOverScne");
+                }
                 //move dog 
                 Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
                 dogRow += DogMover.dRow[direction];
