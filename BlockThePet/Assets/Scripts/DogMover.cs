@@ -44,6 +44,9 @@ namespace GameHandler{
                     minDistance = distances[i];
                 }
             }
+            if(minDistance = int.MaxValue){
+                return -1;
+            }
              
             return minIndex;
         }
