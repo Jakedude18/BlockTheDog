@@ -76,7 +76,7 @@ namespace GameHandler{
         // Update is called once per frame
         
         public float moveInterval = 2;
-        private Animal dog = new Dog(4, 4);
+        private Dog dog = new Dog(4, 4);
         void Update() //make a turn handler so that it alternates between dog and fence
         {
             if(Input.GetMouseButtonDown(0)){

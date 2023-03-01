@@ -13,9 +13,11 @@ namespace GameHandler{
         {
         
         }
-        private void move(int direction){
+        public void move(int direction){
             row += dRow[direction];
             col += dCol[direction];
+            Debug.Log(row);
+            Debug.Log(col);
         }
     }
 }

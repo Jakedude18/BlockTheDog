@@ -15,9 +15,7 @@ namespace GameHandler{
             row = r;
             col = c;
         }
-        public void move(int direction){
-            
-        }
+
     }
     
 }
