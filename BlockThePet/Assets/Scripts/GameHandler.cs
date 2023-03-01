@@ -98,17 +98,19 @@ namespace GameHandler{
                 DogMover dogMover = new DogMover();
                 int direction = dogMover.BPSDirectionToMove(tiles, dogRow, dogCol);
                 if(direction == -1){
-                    SceneManager.LoadScene("success");
+                    SceneManager.LoadScene("Scenes/success");
                 }
+                else{
                 //move dog 
-                Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
-                dogRow += DogMover.dRow[direction];
-                dogCol += DogMover.dCol[direction];
-                moveInterval = 2;
-                isPlayerTurn = !isPlayerTurn;
-                //check if dog has gotten a language 
-                if(tiles[dogRow,dogCol].GetType() == typeof(Escape)){
-                    SceneManager.LoadScene("SWGameOver");
+                    Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
+                    dogRow += DogMover.dRow[direction];
+                    dogCol += DogMover.dCol[direction];
+                    moveInterval = 2;
+                    isPlayerTurn = !isPlayerTurn;
+                    //check if dog has gotten a language 
+                    if(tiles[dogRow,dogCol].GetType() == typeof(Escape)){
+                        SceneManager.LoadScene("Scenes/SWGameOver");
+                    }
                 }
             }
             
@@ -121,15 +123,19 @@ namespace GameHandler{
         
 
         public void StartGame(){
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("start_scene");
+        }
+
+        public void RulesGame() {
+            SceneManager.LoadScene("rules_scene");
         }
 
         public void OpenGame(){
-            SceneManager.LoadScene("Jake_scene");
+            SceneManager.LoadScene("mic_scene");
         }
 
         public void RestartGame(){
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("mic_scene");
         }
 
         public void QuitGame(){
