@@ -17,6 +17,7 @@ namespace GameHandler{
         public GameObject PlayerHandler;
         private PlayerHandler playerHandlerScript;
         public Transform DogArt;
+        public Transform CatArt;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
@@ -77,6 +78,7 @@ namespace GameHandler{
         
         public float moveInterval = 2;
         private Dog dog = new Dog(4, 4);
+        private Cat cat = new Cat(4,5);
         void Update() //make a turn handler so that it alternates between dog and fence
         {
             if(Input.GetMouseButtonDown(0)){
@@ -92,21 +94,33 @@ namespace GameHandler{
             }
             if(!isPlayerTurn)
             {
-                //timer to let dog think
-
-                DogMover dogMover = new DogMover();
-                Debug.Log("row: " + dog.row + " col: " + dog.col);
+                //move Dog
+                DogMover dogMover = new DogMover(Dog.dRow,Dog.dCol);
                 int direction = dogMover.BPSDirectionToMove(tiles, dog.row, dog.col);
                 if(direction == -1){
                     SceneManager.LoadScene("Scenes/success");
                 }
                 else{
-                //move dog 
                     DogArt.position += Vector3.right * (float) Dog.dCol[direction] + Vector3.down * (float) Dog.dRow[direction];
                     dog.move(direction);
                     isPlayerTurn = !isPlayerTurn;
-                    //check if dog has gotten a language 
+                    //check if dog has escaped 
                     if(tiles[dog.row,dog.col].GetType() == typeof(Escape)){
+                        SceneManager.LoadScene("Scenes/SWGameOver");
+                    }
+                }
+
+                //move Cat
+                dogMover = new DogMover(Cat.dRow,Cat.dCol);
+                direction = dogMover.BPSDirectionToMove(tiles, cat.row, cat.col);
+                if(direction == -1){
+                    SceneManager.LoadScene("Scenes/success");
+                }
+                else{
+                    CatArt.position += Vector3.right * (float) Cat.dCol[direction] + Vector3.down * (float) Cat.dRow[direction];
+                    cat.move(direction);
+                    //check if cat has escaped 
+                    if(tiles[cat.row,cat.col].GetType() == typeof(Escape)){
                         SceneManager.LoadScene("Scenes/SWGameOver");
                     }
                 }
