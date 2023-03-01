@@ -334,6 +334,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 369203029}
     - target: {fileID: 2179224465097581428, guid: 3b17b724aa5494a9c99c3439c615e31a, type: 3}
+      propertyPath: DogArt
+      value: 
+      objectReference: {fileID: 369203029}
+    - target: {fileID: 2179224465097581428, guid: 3b17b724aa5494a9c99c3439c615e31a, type: 3}
       propertyPath: fencePrefab
       value: 
       objectReference: {fileID: 904736082966121837, guid: 3879696a115ae5742ba2b7ba2d961f08, type: 3}
