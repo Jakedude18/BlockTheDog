@@ -12,6 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/mic_scene.unity
     guid: 7b99e4f816a15494fbbf1e0c5628aaf0
   - enabled: 1
+<<<<<<< HEAD
+<<<<<<< HEAD
+    path: Assets/Scenes/start_scene.unity
+    guid: de252a44fbfa05e4b80e8a9a2e68cfd0
+=======
+=======
+>>>>>>> dd7221057d71c369570d93383d230b2aa2f4349a
     path: Assets/Scenes/success.unity
     guid: 2eaae283e53404a7faf4b150bb8d4ac3
   - enabled: 1
@@ -20,4 +27,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Jake_scene.unity
     guid: 4ba382c7f31c44eec91571bfaa26fe31
+<<<<<<< HEAD
+>>>>>>> dd7221057d71c369570d93383d230b2aa2f4349a
+=======
+>>>>>>> dd7221057d71c369570d93383d230b2aa2f4349a
   m_configObjects: {}

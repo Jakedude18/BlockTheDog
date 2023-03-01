@@ -121,15 +121,19 @@ namespace GameHandler{
         
 
         public void StartGame(){
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("start_scene");
+        }
+
+        public void RulesGame() {
+            SceneManager.LoadScene("rules_scene");
         }
 
         public void OpenGame(){
-            SceneManager.LoadScene("Jake_scene");
+            SceneManager.LoadScene("mic_scene");
         }
 
         public void RestartGame(){
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("mic_scene");
         }
 
         public void QuitGame(){
