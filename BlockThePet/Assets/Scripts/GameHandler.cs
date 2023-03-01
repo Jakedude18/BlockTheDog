@@ -16,7 +16,7 @@ namespace GameHandler{
         public GameObject fencePrefab;
         public GameObject PlayerHandler;
         private PlayerHandler playerHandlerScript;
-        public Transform Dog;
+        public Transform DogArt;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
@@ -76,8 +76,7 @@ namespace GameHandler{
         // Update is called once per frame
         
         public float moveInterval = 2;
-        private int dogRow = 4;
-        private int dogCol = 4;
+        private Animal dog = new Dog(4, 4);
         void Update() //make a turn handler so that it alternates between dog and fence
         {
             if(Input.GetMouseButtonDown(0)){
@@ -96,19 +95,18 @@ namespace GameHandler{
                 //timer to let dog think
 
                 DogMover dogMover = new DogMover();
-                int direction = dogMover.BPSDirectionToMove(tiles, dogRow, dogCol);
+                Debug.Log("row: " + dog.row + " col: " + dog.col);
+                int direction = dogMover.BPSDirectionToMove(tiles, dog.row, dog.col);
                 if(direction == -1){
                     SceneManager.LoadScene("Scenes/success");
                 }
                 else{
                 //move dog 
-                    Dog.position += Vector3.right * (float) DogMover.dCol[direction] + Vector3.down * (float)DogMover.dRow[direction];
-                    dogRow += DogMover.dRow[direction];
-                    dogCol += DogMover.dCol[direction];
-                    moveInterval = 2;
+                    DogArt.position += Vector3.right * (float) Dog.dCol[direction] + Vector3.down * (float) Dog.dRow[direction];
+                    dog.move(direction);
                     isPlayerTurn = !isPlayerTurn;
                     //check if dog has gotten a language 
-                    if(tiles[dogRow,dogCol].GetType() == typeof(Escape)){
+                    if(tiles[dog.row,dog.col].GetType() == typeof(Escape)){
                         SceneManager.LoadScene("Scenes/SWGameOver");
                     }
                 }
