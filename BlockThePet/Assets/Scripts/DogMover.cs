@@ -6,8 +6,12 @@ namespace GameHandler{
     class DogMover
     {
         
-        static public int[] dRow = { 0, 1, 0, -1 }; // The x-directions to move in (left, down, right, up)
-        static public int[] dCol = { -1, 0, 1, 0 }; // The y-directions to move in (left, down, right, up)
+        private int[] dRow, dCol;
+
+        public DogMover(int[] dRow, int[] dCol){
+            this.dRow = dRow;
+            this.dCol = dCol;
+        }
 
         static bool[,] visited; // A boolean array to keep track of which cells have been visited
         static int[,] dist; // A 2D array to keep track of the distance to the starting cell
