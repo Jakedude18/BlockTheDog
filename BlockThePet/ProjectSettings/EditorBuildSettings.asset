@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/mic_scene.unity
+    guid: 7b99e4f816a15494fbbf1e0c5628aaf0
+  - enabled: 1
+    path: Assets/Scenes/SWGameOver.unity
+    guid: 957bb792670d8442bbf3fe8e9db33200
+  - enabled: 1
+    path: Assets/Scenes/success.unity
+    guid: 2eaae283e53404a7faf4b150bb8d4ac3
+  - enabled: 1
+    path: Assets/Scenes/start_scene.unity
+    guid: de252a44fbfa05e4b80e8a9a2e68cfd0
+  - enabled: 1
+    path: Assets/Scenes/swtutorialpause.unity
+    guid: a24eb866e4f4947aa8305ced79790cb9
   m_configObjects: {}
