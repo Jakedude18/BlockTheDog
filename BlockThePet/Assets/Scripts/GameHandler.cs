@@ -94,11 +94,13 @@ namespace GameHandler{
             }
             if(!isPlayerTurn)
             {
+                bool dogEscape = false;
+                bool catEscape = false;
                 //move Dog
                 DogMover dogMover = new DogMover(Dog.dRow,Dog.dCol);
                 int direction = dogMover.BPSDirectionToMove(tiles, dog.row, dog.col);
                 if(direction == -1){
-                    SceneManager.LoadScene("Scenes/success");
+                    dogEscape = true;
                 }
                 else{
                     DogArt.position += Vector3.right * (float) Dog.dCol[direction] + Vector3.down * (float) Dog.dRow[direction];
@@ -114,7 +116,7 @@ namespace GameHandler{
                 dogMover = new DogMover(Cat.dRow,Cat.dCol);
                 direction = dogMover.BPSDirectionToMove(tiles, cat.row, cat.col);
                 if(direction == -1){
-                    SceneManager.LoadScene("Scenes/success");
+                    catEscape = true;
                 }
                 else{
                     CatArt.position += Vector3.right * (float) Cat.dCol[direction] + Vector3.down * (float) Cat.dRow[direction];
@@ -124,7 +126,12 @@ namespace GameHandler{
                         SceneManager.LoadScene("Scenes/SWGameOver");
                     }
                 }
+                if(dogEscape && catEscape){
+                    SceneManager.LoadScene("Scenes/success");
+                }
             }
+
+            
             
             if (Input.GetKey("escape")){
                 //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
