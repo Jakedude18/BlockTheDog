@@ -15,21 +15,31 @@ namespace GameHandler{
         public GameObject escapePrefab;
         public GameObject fencePrefab;
         public GameObject PlayerHandler;
+        public GameObject PetHandler;
+        private PetHandler PetHandlerScript;
         private PlayerHandler playerHandlerScript;
-        public Transform DogArt;
-        public Transform CatArt;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
         private static int size = 10;
         public bool isPlayerTurn = true;
         Tile[,] tiles = new Tile[size,size];
+
         
         // Start is called before the first frame update
         void Start()
         {
             playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
+            PetHandlerScript = PetHandler.GetComponent<PetHandler>();
             readInMap();
             renderMap();
+            Dog dog = new Dog(4,4);
+            Cat cat = new Cat(4,5);
+            Chicken chicken = new Chicken(6,5);
+            List<Animal> animals = new List<Animal>();
+            animals.Add(dog);
+            animals.Add(cat);
+            animals.Add(chicken);
+            PetHandlerScript.addAnimals(animals);
         }
 
         void readInMap(){
@@ -76,9 +86,7 @@ namespace GameHandler{
         // COMMENTED OUT 2/26
         // Update is called once per frame
         
-        public float moveInterval = 2;
-        private Dog dog = new Dog(4, 4);
-        private Cat cat = new Cat(4,5);
+  
         void Update() //make a turn handler so that it alternates between dog and fence
         {
             if(Input.GetMouseButtonDown(0)){
@@ -87,49 +95,31 @@ namespace GameHandler{
                     tiles = playerHandlerScript.placeFence(tiles);
                 }
                 catch(System.Exception e){
-                    Debug.Log("Can't put fence on boulder");
+                    if (e.Message == "on boulder") {
+                        Debug.Log("Can't put fence on boulder");
+                        isPlayerTurn = true;
+                    }
+                    else if (e.Message == "no fences")  {
+                        SceneManager.LoadScene("Scenes/SWGameOver");
+                        Debug.Log("No more fences");                    
+                    }
                     isPlayerTurn = true;
+
                 }
+
                 renderMap();
             }
             if(!isPlayerTurn)
             {
-                bool dogEscape = false;
-                bool catEscape = false;
+                bool animalEscape;
                 //move Dog
-                DogMover dogMover = new DogMover(Dog.dRow,Dog.dCol);
-                int direction = dogMover.BPSDirectionToMove(tiles, dog.row, dog.col);
-                if(direction == -1){
-                    dogEscape = true;
-                }
-                else{
-                    DogArt.position += Vector3.right * (float) Dog.dCol[direction] + Vector3.down * (float) Dog.dRow[direction];
-                    dog.move(direction);
-                    isPlayerTurn = true;
-                    //check if dog has escaped 
-                    if(tiles[dog.row,dog.col].GetType() == typeof(Escape)){
-                        SceneManager.LoadScene("Scenes/SWGameOver");
-                    }
-                }
+                
+                animalEscape = PetHandlerScript.moveAnimals(tiles);
 
-                //move Cat
-                dogMover = new DogMover(Cat.dRow,Cat.dCol);
-                direction = dogMover.BPSDirectionToMove(tiles, cat.row, cat.col);
-                if(direction == -1){
-                    catEscape = true;
-                }
-                else{
-                    CatArt.position += Vector3.right * (float) Cat.dCol[direction] + Vector3.down * (float) Cat.dRow[direction];
-                    cat.move(direction);
-                    isPlayerTurn = true;
-                    //check if cat has escaped 
-                    if(tiles[cat.row,cat.col].GetType() == typeof(Escape)){
-                        SceneManager.LoadScene("Scenes/SWGameOver");
-                    }
-                }
-                if(dogEscape && catEscape){
+                if(animalEscape){
                     SceneManager.LoadScene("Scenes/success");
                 }
+                isPlayerTurn = true;
             }
 
             

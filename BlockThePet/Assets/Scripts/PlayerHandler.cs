@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 // using MathF;
 
@@ -9,22 +10,28 @@ namespace GameHandler{
     public class PlayerHandler : MonoBehaviour
     {
         // fence prefab is set to "Top Layer" layer tag
+        public GameObject fenceText;
         [SerializeField] GameObject fencePrefab;
+        // public Text fenceKeeper;
         static double boardSize = 10;
         static double boardMultipler = boardSize/10;
         static double xOffset = 5;
         static double yOffset = 0;
+        private int numFences = 6;
 
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log(boardMultipler);
+            Text fenceTextB = fenceText.GetComponent<Text>();
+            fenceTextB.text = "Par: " + numFences;
+            UpdateFences();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            
+
+        void UpdateFences() {
+            Text fenceTextB = fenceText.GetComponent<Text>();
+            fenceTextB.text = "Par: " + numFences;
+            // fenceTextB.text = "Fences: " + numFences;
         }
 
         public Tile[,] placeFence(Tile[,] board) {
@@ -39,18 +46,20 @@ namespace GameHandler{
             Debug.Log("col: " + col);
 
 
-
+            // Debug.Log("numfences: " + numFences);
             if(board[row,col].GetType() != typeof(Grass)){
-                throw new System.Exception("Hello");
+                throw new System.Exception("on boulder");
+            }
+            else if (numFences <= 0) {
+                throw new System.Exception("no fences");
             }
             else{
                 board[row,col] = new Fence();
+                numFences -= 1;
+                Debug.Log("fences left: " + numFences);
             }
             return board;
         }
 
-        public void test() {
-            Debug.Log("test");
-        }
     }
 }
