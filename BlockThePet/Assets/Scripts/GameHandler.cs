@@ -105,7 +105,7 @@ namespace GameHandler{
                 else{
                     DogArt.position += Vector3.right * (float) Dog.dCol[direction] + Vector3.down * (float) Dog.dRow[direction];
                     dog.move(direction);
-                    isPlayerTurn = !isPlayerTurn;
+                    isPlayerTurn = true;
                     //check if dog has escaped 
                     if(tiles[dog.row,dog.col].GetType() == typeof(Escape)){
                         SceneManager.LoadScene("Scenes/SWGameOver");
@@ -121,6 +121,7 @@ namespace GameHandler{
                 else{
                     CatArt.position += Vector3.right * (float) Cat.dCol[direction] + Vector3.down * (float) Cat.dRow[direction];
                     cat.move(direction);
+                    isPlayerTurn = true;
                     //check if cat has escaped 
                     if(tiles[cat.row,cat.col].GetType() == typeof(Escape)){
                         SceneManager.LoadScene("Scenes/SWGameOver");
