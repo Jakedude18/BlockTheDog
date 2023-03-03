@@ -34,9 +34,11 @@ namespace GameHandler{
             renderMap();
             Dog dog = new Dog(4,4);
             Cat cat = new Cat(4,5);
+            Chicken chicken = new Chicken(6,5);
             List<Animal> animals = new List<Animal>();
             animals.Add(dog);
             animals.Add(cat);
+            animals.Add(chicken);
             PetHandlerScript.addAnimals(animals);
         }
 

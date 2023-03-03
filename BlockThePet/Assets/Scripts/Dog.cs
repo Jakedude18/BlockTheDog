@@ -17,8 +17,7 @@ namespace GameHandler{
         public override void move(int direction){
             row += dRow[direction];
             col += dCol[direction];
-            Debug.Log(row);
-            Debug.Log(col);
+
         }
     }
 }
