@@ -8,40 +8,35 @@ using UnityEngine;
 namespace GameHandler{
     public class PetHandler : MonoBehaviour
     {
-        public Transform DogArt;
-        public Transform CatArt;
-        private Dog dog = new Dog(4, 4);
-        private Cat cat = new Cat(4,5);
+        List<Animal> animals = new List<Animal>();
+        public List<Transform> animalArt;
 
+        public void addAnimals(List<Animal> animals){
+            this.animals = animals;
+        }
+
+        public bool moveAnimals(Tile[,] tiles){
+            List<bool> escapes = new List<bool>(new bool[animals.Count]);
+            for(int i = 0; i < animals.Count; i++){
+                escapes[i] = moveAnimal(tiles, animals[i], animalArt[i]);
+            }
+            foreach(bool escape in escapes){
+                if(!escape) return false;
+            }
+            return true;
+        }
         //returns if dog has escaped
-        public bool moveDog(Tile[,] tiles){
-            DogMover dogMover = new DogMover(Dog.dRow,Dog.dCol);
-            int direction = dogMover.BPSDirectionToMove(tiles, dog.row, dog.col);
+        private bool moveAnimal(Tile[,] tiles, Animal animal, Transform animalArt){
+            DogMover dogMover = new DogMover(animal.dRow,animal.dCol);
+            int direction = dogMover.BPSDirectionToMove(tiles, animal.row, animal.col);
             if(direction == -1){
                 return true;
             }
             else{
-                DogArt.position += Vector3.right * (float) Dog.dCol[direction] + Vector3.down * (float) Dog.dRow[direction];
-                dog.move(direction);
+                animalArt.position += Vector3.right * (float) animal.dCol[direction] + Vector3.down * (float) animal.dRow[direction];
+                animal.move(direction);
                 //check if dog has escaped 
-                if(tiles[dog.row,dog.col].GetType() == typeof(Escape)){
-                    SceneManager.LoadScene("Scenes/SWGameOver");
-                }
-            }
-            return false;
-        }
-
-        public bool moveCat(Tile[,] tiles){
-            DogMover dogMover = new DogMover(Cat.dRow,Cat.dCol);
-            int direction = dogMover.BPSDirectionToMove(tiles, cat.row, cat.col);
-            if(direction == -1){
-                return true;;
-            }
-            else{
-                CatArt.position += Vector3.right * (float) Cat.dCol[direction] + Vector3.down * (float) Cat.dRow[direction];
-                cat.move(direction);
-                //check if cat has escaped 
-                if(tiles[cat.row,cat.col].GetType() == typeof(Escape)){
+                if(tiles[animal.row,animal.col].GetType() == typeof(Escape)){
                     SceneManager.LoadScene("Scenes/SWGameOver");
                 }
             }

@@ -9,13 +9,17 @@ namespace GameHandler{
     {
         public int row;
         public int col;
-        static public int[] dRow;
-        static public int[] dCol;
+        public virtual int[] dRow { get; set; } = {0,0,0,0};
+        public virtual int[] dCol { get; set; } = {0,0,0,0};
+
         public Animal(int r, int c) {
             row = r;
             col = c;
         }
 
+        public virtual void move(int direction){
+
+        }
     }
     
 }

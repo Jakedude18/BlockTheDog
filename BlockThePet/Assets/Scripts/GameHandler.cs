@@ -23,6 +23,7 @@ namespace GameHandler{
         private static int size = 10;
         public bool isPlayerTurn = true;
         Tile[,] tiles = new Tile[size,size];
+
         
         // Start is called before the first frame update
         void Start()
@@ -31,6 +32,12 @@ namespace GameHandler{
             PetHandlerScript = PetHandler.GetComponent<PetHandler>();
             readInMap();
             renderMap();
+            Dog dog = new Dog(4,4);
+            Cat cat = new Cat(4,5);
+            List<Animal> animals = new List<Animal>();
+            animals.Add(dog);
+            animals.Add(cat);
+            PetHandlerScript.addAnimals(animals);
         }
 
         void readInMap(){
@@ -93,16 +100,12 @@ namespace GameHandler{
             }
             if(!isPlayerTurn)
             {
-                bool dogEscape = false;
-                bool catEscape = false;
+                bool animalEscape;
                 //move Dog
                 
-                dogEscape = PetHandlerScript.moveDog(tiles);
+                animalEscape = PetHandlerScript.moveAnimals(tiles);
 
-                //move Cat
-                catEscape = PetHandlerScript.moveCat(tiles);
-
-                if(dogEscape && catEscape){
+                if(animalEscape){
                     SceneManager.LoadScene("Scenes/success");
                 }
                 isPlayerTurn = true;
