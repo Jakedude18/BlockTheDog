@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 1488358970}
     - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: animalArt.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: animalArt.Array.data[0]
@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: animalArt.Array.data[1]
       value: 
       objectReference: {fileID: 1309664569}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: animalArt.Array.data[2]
+      value: 
+      objectReference: {fileID: 1976771153}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
 --- !u!1 &1309664568
@@ -747,6 +751,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &1976771153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5461328026765542229, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
+  m_PrefabInstance: {fileID: 6705964038818376541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3876954984933627510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,6 +763,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3876954986483143360, guid: 5355194f2f3e808438fabda0e9fbc9ff, type: 3}
+      propertyPath: fenceText
+      value: 
+      objectReference: {fileID: 7847779522358836336, guid: 0451c193bf365b14d80a5f4d1f77c682, type: 3}
     - target: {fileID: 3876954986483143361, guid: 5355194f2f3e808438fabda0e9fbc9ff, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -833,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5461328026765542229, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5461328026765542229, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
       propertyPath: m_LocalPosition.z
