@@ -86,9 +86,18 @@ namespace GameHandler{
                     tiles = playerHandlerScript.placeFence(tiles);
                 }
                 catch(System.Exception e){
-                    Debug.Log("Can't put fence on boulder");
+                    if (e.Message == "on boulder") {
+                        Debug.Log("Can't put fence on boulder");
+                        isPlayerTurn = true;
+                    }
+                    else if (e.Message == "no fences")  {
+                        SceneManager.LoadScene("Scenes/SWGameOver");
+                        Debug.Log("No more fences");                    
+                    }
                     isPlayerTurn = true;
+
                 }
+
                 renderMap();
             }
             if(!isPlayerTurn)
