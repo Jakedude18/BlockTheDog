@@ -22,6 +22,8 @@ namespace GameHandler{
         // Start is called before the first frame update
         void Start()
         {
+            Text fenceTextB = fenceText.GetComponent<Text>();
+            fenceTextB.text = "Par: " + numFences;
             UpdateFences();
         }
 
