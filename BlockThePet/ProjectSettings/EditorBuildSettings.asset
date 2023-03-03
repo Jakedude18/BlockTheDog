@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/start_scene.unity
     guid: de252a44fbfa05e4b80e8a9a2e68cfd0
-  - enabled: 1
-    path: Assets/Scenes/swtutorialpause.unity
-    guid: a24eb866e4f4947aa8305ced79790cb9
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
