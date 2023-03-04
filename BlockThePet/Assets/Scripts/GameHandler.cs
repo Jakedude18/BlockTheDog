@@ -20,6 +20,7 @@ namespace GameHandler{
         private PlayerHandler playerHandlerScript;
         public Transform boardTopLeft;
         public TextAsset mapTextFile;
+        public TextAsset animalsTextFile;
         private static int size = 10;
         public bool isPlayerTurn = true;
         Tile[,] tiles = new Tile[size,size];
@@ -32,14 +33,29 @@ namespace GameHandler{
             PetHandlerScript = PetHandler.GetComponent<PetHandler>();
             readInMap();
             renderMap();
-            Dog dog = new Dog(4,4);
-            Cat cat = new Cat(4,5);
-            Chicken chicken = new Chicken(6,5);
+            readInAnimals();            
+        }
+
+        void readInAnimals(){
             List<Animal> animals = new List<Animal>();
-            animals.Add(dog);
-            animals.Add(cat);
-            animals.Add(chicken);
+            string text = animalsTextFile.text;
+            text = text.Replace("\n", "").Replace("\r", "");
+            for(int i = 1; i < text[0] - '0'; i++){
+                char type = text[i*3];
+                int row = text[i*3+1] - '0';
+                int col = text[i*3+2] - '0';
+                if(type == 'd'){
+                    animals.Add(new Dog(row, col));
+                }
+                if(type == 'k'){
+                    animals.Add(new Cat(row, col));
+                }
+                if(type == 'c'){
+                    animals.Add(new Chicken(row, col));
+                }
+            }
             PetHandlerScript.addAnimals(animals);
+
         }
 
         void readInMap(){

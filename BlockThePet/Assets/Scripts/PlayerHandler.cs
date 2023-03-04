@@ -17,7 +17,7 @@ namespace GameHandler{
         static double boardMultipler = boardSize/10;
         static double xOffset = 5;
         static double yOffset = 0;
-        private int numFences = 6;
+        public int numFences = 6;
 
         // Start is called before the first frame update
         void Start()

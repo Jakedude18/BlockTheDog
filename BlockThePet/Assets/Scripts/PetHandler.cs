@@ -16,8 +16,12 @@ namespace GameHandler{
         }
 
         public bool moveAnimals(Tile[,] tiles){
+            Debug.Log("Count is " + animals.Count);
             List<bool> escapes = new List<bool>(new bool[animals.Count]);
             for(int i = 0; i < animals.Count; i++){
+                Debug.Log("animal art count is " + animalArt.Count);
+                Debug.Log(animalArt[0]);
+                Debug.Log(animalArt[i]);
                 escapes[i] = moveAnimal(tiles, animals[i], animalArt[i]);
             }
             foreach(bool escape in escapes){
