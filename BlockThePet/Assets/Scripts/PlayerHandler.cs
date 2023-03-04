@@ -17,7 +17,7 @@ namespace GameHandler{
         static double boardMultipler = boardSize/10;
         static double xOffset = 5;
         static double yOffset = 0;
-        private int numFences = 6;
+        public int numFences = 6;
 
         // Start is called before the first frame update
         void Start()
@@ -50,9 +50,11 @@ namespace GameHandler{
             if(board[row,col].GetType() != typeof(Grass)){
                 throw new System.Exception("on boulder");
             }
+            /*
             else if (numFences <= 0) {
                 throw new System.Exception("no fences");
             }
+            */
             else{
                 board[row,col] = new Fence();
                 numFences -= 1;
