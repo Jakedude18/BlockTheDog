@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PetHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 473259774209492169, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: m_TagString
+      value: PetHandler
+      objectReference: {fileID: 0}
     - target: {fileID: 1746141811370515346, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -485,9 +489,10 @@ GameObject:
   - component: {fileID: 1309664572}
   - component: {fileID: 1309664571}
   - component: {fileID: 1309664570}
+  - component: {fileID: 1309664573}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: PetHandler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -562,12 +567,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309664568}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 445ca6a63bb0d466785ef88808885112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &1309664573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309664568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d418afb760564c1b8b12d0f7491e318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  animalArt:
+  - {fileID: 1309664569}
 --- !u!1 &1442925423
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +683,6 @@ GameObject:
   - component: {fileID: 1488358970}
   - component: {fileID: 1488358971}
   - component: {fileID: 1488358972}
-  - component: {fileID: 1488358973}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -922,8 +941,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1770489810}
-  - component: {fileID: 1770489809}
   - component: {fileID: 1770489811}
+  - component: {fileID: 1770489809}
   m_Layer: 0
   m_Name: cat_art
   m_TagString: Untagged
@@ -971,7 +990,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 74940a34fcc4b4cb9ab4df3e340857bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1016,13 +1035,8 @@ Animator:
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptximization: 1
+  m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &1976771153 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5461328026765542229, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
-  m_PrefabInstance: {fileID: 6705964038818376541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1809786143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,8 +1102,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1976771153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5461328026765542229, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
+  m_PrefabInstance: {fileID: 6705964038818376541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3876954984933627510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1164,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5461328026765542229, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5461328026765542229, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
       propertyPath: m_LocalScale.x

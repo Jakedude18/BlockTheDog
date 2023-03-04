@@ -39,8 +39,8 @@ public class CatAnimate : MonoBehaviour {
 
        void UpdateAnimationAndMove() {
             if (change!=Vector3.zero) {
-                rb2d.MovePosition(transform.position + change * speed * Time.deltaTime);
                 anim.SetBool("run", true);
+                rb2d.MovePosition(transform.position + change * speed * Time.deltaTime);
                 //if (!audioWalk.isPlaying){ audioWalk.Play(); }
             } else {
                 anim.SetBool("run", false);
