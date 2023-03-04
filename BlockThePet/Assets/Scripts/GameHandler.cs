@@ -42,6 +42,7 @@ namespace GameHandler{
             text = text.Replace("\n", "").Replace("\r", "");
             for(int i = 1; i < text[0] - '0'; i++){
                 char type = text[i*3];
+                Debug.Log("iteration " + i);
                 int row = text[i*3+1] - '0';
                 int col = text[i*3+2] - '0';
                 if(type == 'd'){
@@ -117,7 +118,7 @@ namespace GameHandler{
                     }
                     else if (e.Message == "no fences")  {
                         //SceneManager.LoadScene("Scenes/SWGameOver");
-                        Debug.Log("No more fences");                    
+                        Debug.Log("No more fences");
                     }
                     isPlayerTurn = true;
 

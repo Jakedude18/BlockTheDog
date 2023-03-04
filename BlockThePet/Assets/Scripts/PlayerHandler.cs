@@ -50,9 +50,11 @@ namespace GameHandler{
             if(board[row,col].GetType() != typeof(Grass)){
                 throw new System.Exception("on boulder");
             }
+            /*
             else if (numFences <= 0) {
                 throw new System.Exception("no fences");
             }
+            */
             else{
                 board[row,col] = new Fence();
                 numFences -= 1;
