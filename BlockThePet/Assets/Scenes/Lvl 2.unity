@@ -250,6 +250,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5688495364733509841, guid: 27f18d744cc2e4fd997bd0ef60410671, type: 3}
   m_PrefabInstance: {fileID: 1584909205}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &346818331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6444171325132938249, guid: 12a195a58674d4de88cc3fa5ba798dce, type: 3}
+  m_PrefabInstance: {fileID: 49347101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +339,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &653710566 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4317656745906597644, guid: d4aed032a124c4c9ab04aa12e79da775, type: 3}
+  m_PrefabInstance: {fileID: 1552651610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &826200770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -405,6 +415,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2179224465097581428, guid: 3b17b724aa5494a9c99c3439c615e31a, type: 3}
+      propertyPath: PetHandler
+      value: 
+      objectReference: {fileID: 1883173548}
+    - target: {fileID: 2179224465097581428, guid: 3b17b724aa5494a9c99c3439c615e31a, type: 3}
       propertyPath: fencePrefab
       value: 
       objectReference: {fileID: 904736082966121837, guid: 3879696a115ae5742ba2b7ba2d961f08, type: 3}
@@ -466,6 +480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b17b724aa5494a9c99c3439c615e31a, type: 3}
+--- !u!4 &1148518111 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6444171325132938249, guid: 12a195a58674d4de88cc3fa5ba798dce, type: 3}
+  m_PrefabInstance: {fileID: 1913090328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1552651610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,6 +599,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: test
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: ints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: ints.Array.data[0]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: animalArt.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -590,15 +621,15 @@ PrefabInstance:
     - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: animalArt.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 346818331}
     - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: animalArt.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1148518111}
     - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: animalArt.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 653710566}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
 --- !u!1001 &1584909205
@@ -698,6 +729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f18d744cc2e4fd997bd0ef60410671, type: 3}
+--- !u!1 &1883173548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 473259774209492169, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+  m_PrefabInstance: {fileID: 1566662988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1913090328
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -116,7 +116,7 @@ namespace GameHandler{
                         isPlayerTurn = true;
                     }
                     else if (e.Message == "no fences")  {
-                        SceneManager.LoadScene("Scenes/SWGameOver");
+                        //SceneManager.LoadScene("Scenes/SWGameOver");
                         Debug.Log("No more fences");                    
                     }
                     isPlayerTurn = true;

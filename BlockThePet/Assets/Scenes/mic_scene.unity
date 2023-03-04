@@ -937,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 7847779522358836336, guid: 0451c193bf365b14d80a5f4d1f77c682, type: 3}
     - target: {fileID: 3876954986483143360, guid: 5355194f2f3e808438fabda0e9fbc9ff, type: 3}
       propertyPath: numFences
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3876954986483143361, guid: 5355194f2f3e808438fabda0e9fbc9ff, type: 3}
       propertyPath: m_RootOrder
