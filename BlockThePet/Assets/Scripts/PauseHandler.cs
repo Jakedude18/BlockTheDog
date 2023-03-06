@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 public class PauseHandler : MonoBehaviour
 {
     private bool paused;
-    public GameObject menuUI;
+    public GameObject menuUI ;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class PauseHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (paused)
                 Resume();
