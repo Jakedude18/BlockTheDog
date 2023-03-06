@@ -8,9 +8,9 @@ namespace GameHandler{
     public class Chicken : Animal                
     {
 
-        public override int[] dRow { get; set; } = { 0, 0, 0, 0};
+        public override int[] dRow { get; set; } = {0, 0, 0, 0};
         public override int[] dCol { get; set; } = { 1, 0, -1, 0};
-
+ 
         public Chicken(int r, int c) : base(r,c)
         {
         

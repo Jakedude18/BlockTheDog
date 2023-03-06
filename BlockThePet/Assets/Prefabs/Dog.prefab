@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4317656745906597644}
   - component: {fileID: 4317656745906597645}
+  - component: {fileID: 8793613658315440383}
+  - component: {fileID: 2994852916387768722}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -41,7 +43,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4317656745906597647}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e20879a003d224f7a8543dd5c2052f2b, type: 2}
   m_CullingMode: 0
@@ -53,6 +55,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &8793613658315440383
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317656745906597647}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &2994852916387768722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317656745906597647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87580ca1126564d5e9cd977e200c0771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
 --- !u!1 &4317656746939381349
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,8 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4317656746939381347}
   - component: {fileID: 4317656746939381346}
-  - component: {fileID: 4317656746939381345}
-  - component: {fileID: 4317656746939381358}
+  - component: {fileID: 2466365074933029086}
   m_Layer: 0
   m_Name: dog_art
   m_TagString: Untagged
@@ -139,42 +179,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4317656746939381345
-MonoBehaviour:
+--- !u!95 &2466365074933029086
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4317656746939381349}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87580ca1126564d5e9cd977e200c0771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
---- !u!61 &4317656746939381358
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4317656746939381349}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.3125, y: 11.3125}
-    newSize: {x: 10.24, y: 7.46}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 11.3125, y: 11.3125}
-  m_EdgeRadius: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e20879a003d224f7a8543dd5c2052f2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

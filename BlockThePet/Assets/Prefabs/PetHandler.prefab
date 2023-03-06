@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d418afb760564c1b8b12d0f7491e318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DogArt: {fileID: 0}
-  CatArt: {fileID: 0}
+  petSpeed: 10
+  animalArt: []

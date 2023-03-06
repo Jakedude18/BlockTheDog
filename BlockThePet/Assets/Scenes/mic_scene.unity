@@ -355,6 +355,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1488358970}
     - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: petSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
       propertyPath: animalArt.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -534,7 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87580ca1126564d5e9cd977e200c0771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!61 &1488358972
 BoxCollider2D:
   m_ObjectHideFlags: 0
