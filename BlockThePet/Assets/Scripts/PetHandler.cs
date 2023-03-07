@@ -4,15 +4,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
-
 namespace GameHandler{
     public class PetHandler : MonoBehaviour
     {
         public int petSpeed;
         private List<Vector3> targets;
         private bool moving;
+        public GameObject Dog;
+        private AnimalAnimate animationScript;
         List<Animal> animals = new List<Animal>();
         public List<Transform> animalArt;
+        void Start()
+        {
+            animationScript = Dog.GetComponent<AnimalAnimate>();         
+        }
 
         public void addAnimals(List<Animal> animals){
             this.animals = animals;
@@ -22,6 +27,7 @@ namespace GameHandler{
         public bool moveAnimals(Tile[,] tiles){
             List<bool> escapes = new List<bool>(new bool[animals.Count]);
             for(int i = 0; i < animals.Count; i++){
+                animationScript.UpdateAnimationAndMove(true);
                 escapes[i] = moveAnimal(tiles, animals[i], animalArt[i], i);
             }
             foreach(bool escape in escapes){
@@ -55,8 +61,9 @@ namespace GameHandler{
                     Transform movingAnimal = animalArt[i];
                     Vector3 target = targets[i];
                     Vector2 pos = Vector2.Lerp ((Vector2)movingAnimal.position, (Vector2)target, petSpeed * Time.fixedDeltaTime);
-                    movingAnimal.position = new Vector3 (pos.x, pos.y, movingAnimal.position.z);    
+                    movingAnimal.position = new Vector3 (pos.x, pos.y, movingAnimal.position.z);
                 }
+                animationScript.UpdateAnimationAndMove(false);
                 moving = false;
                 for(int i = 0; i < animals.Count; i++){
                     if(animalArt[i].position != targets[i]){
