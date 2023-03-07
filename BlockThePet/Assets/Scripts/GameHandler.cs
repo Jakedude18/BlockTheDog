@@ -10,6 +10,7 @@ using UnityEngine.Audio;
 namespace GameHandler{
     public class GameHandler : MonoBehaviour
     {   
+        public static int curScene = 0;
         public GameObject grassPrefab;
         public GameObject boulderPrefab;
         public GameObject escapePrefab;
@@ -177,11 +178,13 @@ namespace GameHandler{
         }
 
         public void OpenGame(){
-            SceneManager.LoadScene("mic_scene");
+            curScene = 0;
+            SceneManager.LoadScene("dog_lvl");
         }
 
         public void nextGame(){
-            SceneManager.LoadScene("lvl_2");
+            curScene++;
+            SceneManager.LoadScene(curScene);
         }
 
         public void RestartGame(){

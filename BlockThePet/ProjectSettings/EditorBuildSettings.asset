@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/mic_scene.unity
     guid: 7b99e4f816a15494fbbf1e0c5628aaf0
   - enabled: 1
+    path: Assets/Scenes/dog_lvl.unity
+    guid: c01507447c8384ff0a4b98c2c848102e
+  - enabled: 1
+    path: Assets/Scenes/cat_lvl.unity
+    guid: 39c7e779d532644a484a6580a35d0e59
+  - enabled: 1
+    path: Assets/Scenes/bunny_lvl.unity
+    guid: c60735e4b4492425894e6acc4bad3f27
+  - enabled: 1
     path: Assets/Scenes/lvl_2.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
