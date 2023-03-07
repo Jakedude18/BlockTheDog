@@ -9,6 +9,7 @@ namespace GameHandler{
         //private Vector3 change; // player movement direction
         //private Rigidbody2D rb2d;
         private Animator anim;
+        public bool animate;
         //private Renderer rend;
 
         void Start () {
@@ -42,6 +43,7 @@ namespace GameHandler{
         */
 
         public void UpdateAnimationAndMove(bool moving) {
+            if(anim){
                 if (moving) {
                     //rb2d.MovePosition(transform.position + change * speed * Time.deltaTime);
                     anim.SetBool("Walk", true);
@@ -50,6 +52,7 @@ namespace GameHandler{
                     anim.SetBool("Walk", false);
                     //audioWalk.Stop();
                 }
+            }
         }
             /*
             IEnumerator ChangeColor(){

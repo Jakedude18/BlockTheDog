@@ -10,17 +10,16 @@ namespace GameHandler{
         public int petSpeed;
         private List<Vector3> targets;
         private bool moving;
-        public GameObject Dog;
-        public GameObject Cat;
-        private AnimalAnimate animationScript;
-        private AnimalAnimate animationScript2;
+        public List<GameObject> animalObjects;
+        private List<AnimalAnimate> animationScripts;
         List<Animal> animals = new List<Animal>();
         public List<Transform> animalArt;
         void Start()
         {
-            animationScript = Dog.GetComponent<AnimalAnimate>();
-            animationScript2 = Cat.GetComponent<AnimalAnimate>();         
-         
+            animationScripts = new List<AnimalAnimate>(new AnimalAnimate[animalObjects.Count]);
+            for(int i = 0; i < animalObjects.Count; i++) {
+                animationScripts[i] = animalObjects[i].GetComponent<AnimalAnimate>();
+            }        
         }
 
         public void addAnimals(List<Animal> animals){
@@ -31,8 +30,8 @@ namespace GameHandler{
         public bool moveAnimals(Tile[,] tiles){
             List<bool> escapes = new List<bool>(new bool[animals.Count]);
             for(int i = 0; i < animals.Count; i++){
-                animationScript.UpdateAnimationAndMove(true);
-                animationScript2.UpdateAnimationAndMove(true);
+
+                animationScripts[i].UpdateAnimationAndMove(true);
                 escapes[i] = moveAnimal(tiles, animals[i], animalArt[i], i);
             }
             foreach(bool escape in escapes){
@@ -68,10 +67,11 @@ namespace GameHandler{
                     Vector2 pos = Vector2.Lerp ((Vector2)movingAnimal.position, (Vector2)target, petSpeed * Time.fixedDeltaTime);
                     movingAnimal.position = new Vector3 (pos.x, pos.y, movingAnimal.position.z);
                 }
-                animationScript.UpdateAnimationAndMove(false);
-                animationScript2.UpdateAnimationAndMove(false);
                 moving = false;
                 for(int i = 0; i < animals.Count; i++){
+                    //stop animations
+                    animationScripts[i].UpdateAnimationAndMove(false);
+                    //check if animals have reached target position
                     if(animalArt[i].position != targets[i]){
                         moving = true;
                         break;

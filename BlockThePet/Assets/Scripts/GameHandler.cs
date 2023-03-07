@@ -54,6 +54,9 @@ namespace GameHandler{
                 if(type == 'c'){
                     animals.Add(new Chicken(row, col));
                 }
+                if(type == 'b'){
+                    animals.Add(new Bunny(row, col));
+                }
             }
             PetHandlerScript.addAnimals(animals);
 

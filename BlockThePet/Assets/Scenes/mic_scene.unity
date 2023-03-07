@@ -419,6 +419,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &994221241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2803686651070167709, guid: b89a656f955a84c2696d698f5744cdbc, type: 3}
+  m_PrefabInstance: {fileID: 6705964038818376541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1208986384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -518,6 +523,22 @@ PrefabInstance:
       propertyPath: animalArt.Array.data[3]
       value: 
       objectReference: {fileID: 1976771153}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: animalObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: animalObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1488358969}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: animalObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1309664568}
+    - target: {fileID: 8064476163600953784, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
+      propertyPath: animalObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 994221241}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55fa9dd1d6c7b4e5f9bddc0061cd1437, type: 3}
 --- !u!1 &1309664568
@@ -592,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87580ca1126564d5e9cd977e200c0771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animate: 0
 --- !u!1 &1442925423
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87580ca1126564d5e9cd977e200c0771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animate: 0
 --- !u!61 &1488358972
 BoxCollider2D:
   m_ObjectHideFlags: 0
