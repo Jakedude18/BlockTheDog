@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PetHandler
+  - PauseMenuSlider
   layers:
   - Default
   - TransparentFX

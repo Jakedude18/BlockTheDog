@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.Audio;
 
 namespace GameHandler{
     public class GameHandler : MonoBehaviour
@@ -16,6 +16,8 @@ namespace GameHandler{
         public GameObject fencePrefab;
         public GameObject PlayerHandler;
         public GameObject PetHandler;
+        // public GameObject PauseHandler;
+        // private PauseHandler PauseHandlerScript;
         private PetHandler PetHandlerScript;
         private PlayerHandler playerHandlerScript;
         public Transform boardTopLeft;
@@ -31,10 +33,12 @@ namespace GameHandler{
         {
             playerHandlerScript = PlayerHandler.GetComponent<PlayerHandler>();
             PetHandlerScript = PetHandler.GetComponent<PetHandler>();
+            // PauseHandlerScript = PauseHandler.GetComponent<PauseHandler>();
             readInMap();
             renderMap();
-            readInAnimals();            
+            readInAnimals();   
         }
+
 
         void readInAnimals(){
             List<Animal> animals = new List<Animal>();
@@ -142,15 +146,28 @@ namespace GameHandler{
                 isPlayerTurn = true;
             }
 
+            // pause and resume
+            //PauseHandlerScript.Update();
+            // if (Input.GetKeyDown(KeyCode.Space)){
+            //         if (PauseHandlerScript.GameisPaused){
+            //             PauseHandlerScript.Resume();
+            //         }
+            //         else{
+            //             PauseHandlerScript.Pause();
+            //         }
+            // }
             
-            
+
             if (Input.GetKey("escape")){
                 //This is capturing the escape key correctly but Application.Quit isn't doing anything ig
                 //Apparently, this is ignored in the unity editor but will work after exported
                 Application.Quit();
             }
+       
         }
         
+        //TODO: will update in pausehandler script later
+
 
         public void StartGame(){
             SceneManager.LoadScene("start_scene");
@@ -165,7 +182,8 @@ namespace GameHandler{
         }
 
         public void RestartGame(){
-            SceneManager.LoadScene("mic_scene");
+            Time.timeScale = 1f;
+            StartGame();
         }
 
         public void QuitGame(){
