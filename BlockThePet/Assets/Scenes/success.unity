@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 1406700628}
   - component: {fileID: 1406700627}
   m_Layer: 5
-  m_Name: restartText
+  m_Name: nextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 33
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESTART
+  m_Text: NEXT LEVEL
 --- !u!222 &1406700628
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 1697296335}
   - component: {fileID: 1697296334}
   m_Layer: 5
-  m_Name: 'restartButton '
+  m_Name: nextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2179224465097581428, guid: 3b17b724aa5494a9c99c3439c615e31a, type: 3}
         m_TargetAssemblyTypeName: GameHandler.GameHandler, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: nextGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

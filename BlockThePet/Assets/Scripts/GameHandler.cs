@@ -16,8 +16,7 @@ namespace GameHandler{
         public GameObject fencePrefab;
         public GameObject PlayerHandler;
         public GameObject PetHandler;
-        // public GameObject PauseHandler;
-        // private PauseHandler PauseHandlerScript;
+        // public GameObject PauseHandlerScript;
         private PetHandler PetHandlerScript;
         private PlayerHandler playerHandlerScript;
         public Transform boardTopLeft;
@@ -181,9 +180,13 @@ namespace GameHandler{
             SceneManager.LoadScene("mic_scene");
         }
 
+        public void nextGame(){
+            SceneManager.LoadScene("lvl_2");
+        }
+
         public void RestartGame(){
             Time.timeScale = 1f;
-            StartGame();
+            OpenGame();
         }
 
         public void QuitGame(){
