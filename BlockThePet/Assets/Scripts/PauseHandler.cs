@@ -31,13 +31,13 @@ public class PauseHandler : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){
-                    if (GameisPaused){
-                            Resume();
-                    }
-                    else{
-                            Pause();
-                    }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (GameisPaused) {
+                Resume();
+            }
+            else {
+                Pause();
+            }
         }
     }
 
